@@ -1,0 +1,299 @@
+{
+  // Demo CS2 GameStateIntegration Data
+  // This simulates real CS2 GSI data for testing BroadcasteR.ts
+  
+  "provider": {
+    "name": "Counter-Strike: Global Offensive",
+    "appid": 730,
+    "version": 13748,
+    "steamid": "76561198123456789",
+    "timestamp": 1690747200
+  },
+  
+  "map": {
+    "mode": "competitive",
+    "name": "de_cache",
+    "phase": "live",
+    "round": 16,
+    "team_ct": {
+      "score": 8,
+      "consecutive_round_losses": 0,
+      "timeouts_remaining": 1,
+      "matches_won_this_series": 0,
+      "name": "Team Liquid"
+    },
+    "team_t": {
+      "score": 7,
+      "consecutive_round_losses": 1,
+      "timeouts_remaining": 1,
+      "matches_won_this_series": 0,
+      "name": "Natus Vincere"
+    }
+  },
+  
+  "round": {
+    "phase": "live",
+    "bomb": "planted",
+    "win_team": null
+  },
+  
+  "player": {
+    "steamid": "76561198123456789",
+    "name": "s1mple",
+    "observer_slot": 1,
+    "team": "T",
+    "activity": "playing",
+    "state": {
+      "health": 87,
+      "armor": 100,
+      "helmet": true,
+      "flashed": 0,
+      "smoked": 0,
+      "burning": 0,
+      "money": 4200,
+      "round_kills": 2,
+      "round_killhs": 1,
+      "round_totaldmg": 187,
+      "equip_value": 4850
+    },
+    "weapons": {
+      "weapon_0": {
+        "name": "weapon_ak47",
+        "paintkit": "default",
+        "type": "Rifle",
+        "state": "active",
+        "ammo_clip": 27,
+        "ammo_clip_max": 30,
+        "ammo_reserve": 90
+      },
+      "weapon_1": {
+        "name": "weapon_glock",
+        "paintkit": "default", 
+        "type": "Pistol",
+        "state": "holstered",
+        "ammo_clip": 20,
+        "ammo_clip_max": 20,
+        "ammo_reserve": 120
+      },
+      "weapon_2": {
+        "name": "weapon_hegrenade",
+        "paintkit": "default",
+        "type": "Grenade",
+        "state": "holstered"
+      },
+      "weapon_3": {
+        "name": "weapon_flashbang",
+        "paintkit": "default",
+        "type": "Grenade", 
+        "state": "holstered"
+      }
+    },
+    "match_stats": {
+      "kills": 18,
+      "assists": 4,
+      "deaths": 12,
+      "mvps": 3,
+      "score": 42,
+      "round_killhs": 1
+    }
+  },
+  
+  "allplayers": {
+    "76561198123456789": {
+      "name": "s1mple",
+      "observer_slot": 1,
+      "team": "T",
+      "state": {
+        "health": 87,
+        "armor": 100,
+        "helmet": true,
+        "flashed": 0,
+        "smoked": 0,
+        "burning": 0,
+        "money": 4200,
+        "round_kills": 2,
+        "round_killhs": 1,
+        "round_totaldmg": 187,
+        "equip_value": 4850
+      },
+      "weapons": {
+        "weapon_0": {
+          "name": "weapon_ak47",
+          "paintkit": "default",
+          "type": "Rifle",
+          "state": "active",
+          "ammo_clip": 27,
+          "ammo_clip_max": 30,
+          "ammo_reserve": 90
+        }
+      },
+      "match_stats": {
+        "kills": 18,
+        "assists": 4,
+        "deaths": 12,
+        "mvps": 3,
+        "score": 42,
+        "round_killhs": 1
+      }
+    },
+    "76561198987654321": {
+      "name": "electronic",
+      "observer_slot": 2,
+      "team": "T",
+      "state": {
+        "health": 100,
+        "armor": 100,
+        "helmet": true,
+        "flashed": 0,
+        "smoked": 0,
+        "burning": 0,
+        "money": 3100,
+        "round_kills": 1,
+        "round_killhs": 0,
+        "round_totaldmg": 95,
+        "equip_value": 3700
+      },
+      "weapons": {
+        "weapon_0": {
+          "name": "weapon_m4a1",
+          "paintkit": "default",
+          "type": "Rifle",
+          "state": "active",
+          "ammo_clip": 25,
+          "ammo_clip_max": 30,
+          "ammo_reserve": 90
+        }
+      },
+      "match_stats": {
+        "kills": 14,
+        "assists": 6,
+        "deaths": 13,
+        "mvps": 2,
+        "score": 34,
+        "round_killhs": 0
+      }
+    },
+    "76561198111222333": {
+      "name": "Perfecto",
+      "observer_slot": 3,
+      "team": "T",
+      "state": {
+        "health": 72,
+        "armor": 84,
+        "helmet": true,
+        "flashed": 0,
+        "smoked": 0,
+        "burning": 0,
+        "money": 2400,
+        "round_kills": 0,
+        "round_killhs": 0,
+        "round_totaldmg": 26,
+        "equip_value": 2950
+      },
+      "weapons": {
+        "weapon_0": {
+          "name": "weapon_famas",
+          "paintkit": "default",
+          "type": "Rifle",
+          "state": "active",
+          "ammo_clip": 20,
+          "ammo_clip_max": 25,
+          "ammo_reserve": 75
+        }
+      },
+      "match_stats": {
+        "kills": 10,
+        "assists": 8,
+        "deaths": 14,
+        "mvps": 1,
+        "score": 28,
+        "round_killhs": 0
+      }
+    },
+    "76561198444555666": {
+      "name": "Twistzz",
+      "observer_slot": 6,
+      "team": "CT",
+      "state": {
+        "health": 100,
+        "armor": 100,
+        "helmet": true,
+        "flashed": 0,
+        "smoked": 0,
+        "burning": 0,
+        "money": 5200,
+        "round_kills": 0,
+        "round_killhs": 0,
+        "round_totaldmg": 0,
+        "equip_value": 5100
+      },
+      "weapons": {
+        "weapon_0": {
+          "name": "weapon_awp",
+          "paintkit": "default",
+          "type": "SniperRifle",
+          "state": "active",
+          "ammo_clip": 8,
+          "ammo_clip_max": 10,
+          "ammo_reserve": 30
+        }
+      },
+      "match_stats": {
+        "kills": 16,
+        "assists": 3,
+        "deaths": 11,
+        "mvps": 4,
+        "score": 39,
+        "round_killhs": 0
+      }
+    },
+    "76561198777888999": {
+      "name": "NAF",
+      "observer_slot": 7,
+      "team": "CT",
+      "state": {
+        "health": 89,
+        "armor": 100,
+        "helmet": true,
+        "flashed": 0,
+        "smoked": 0,
+        "burning": 0,
+        "money": 3800,
+        "round_kills": 1,
+        "round_killhs": 1,
+        "round_totaldmg": 104,
+        "equip_value": 4200
+      },
+      "weapons": {
+        "weapon_0": {
+          "name": "weapon_m4a1_silencer",
+          "paintkit": "default",
+          "type": "Rifle",
+          "state": "active",
+          "ammo_clip": 18,
+          "ammo_clip_max": 20,
+          "ammo_reserve": 60
+        }
+      },
+      "match_stats": {
+        "kills": 12,
+        "assists": 5,
+        "deaths": 13,
+        "mvps": 2,
+        "score": 29,
+        "round_killhs": 1
+      }
+    }
+  },
+  
+  "bomb": {
+    "state": "planted",
+    "countdown": "32.5",
+    "position": "1234.56, -678.90, 123.45"
+  },
+  
+  "phase_countdowns": {
+    "phase": "bomb",
+    "phase_ends_in": "32.5"
+  }
+}

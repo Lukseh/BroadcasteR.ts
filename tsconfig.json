@@ -1,0 +1,76 @@
+{
+  "compilerOptions": {
+    /* Language and Environment */
+    "target": "ES2022",
+    "lib": ["ES2022"],
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    
+    /* Module Resolution */
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"],
+      "@/types/*": ["./src/types/*"]
+    },
+    "resolveJsonModule": true,
+    
+    /* JavaScript Support */
+    "allowJs": false,
+    "checkJs": false,
+    
+    /* Emit */
+    "outDir": "./dist",
+    "rootDir": "./",
+    "removeComments": false,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "sourceMap": true,
+    "declaration": true,
+    "declarationMap": true,
+    
+    /* Interop Constraints */
+    "isolatedModules": true,
+    "verbatimModuleSyntax": false,
+    
+    /* Type Checking */
+    "strict": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "strictBindCallApply": true,
+    "strictPropertyInitialization": true,
+    "noImplicitThis": true,
+    "useUnknownInCatchVariables": true,
+    "alwaysStrict": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "exactOptionalPropertyTypes": true,  
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedIndexedAccess": false,
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": false,
+    
+    /* Completeness */
+    "skipDefaultLibCheck": false,
+    "skipLibCheck": true
+  },
+  "include": [
+    "*.ts",
+    "src/**/*.ts",
+    "types/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "**/*.js",
+    "**/*.d.ts"
+  ],
+  "ts-node": {
+    "esm": true,
+    "experimentalSpecifierResolution": "node"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "scripts": {
+    "comp": "tsc",
+    "start": "node dist/index.js",
+    "demo": "node demo_files/demo.js"
+  },
+  "dependencies": {
+    "express": "^5.1.0",
+    "json5": "^2.2.3",
+    "typescript": "^5.8.3",
+    "ws": "^8.18.3"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.3",
+    "@types/node": "^24.1.0",
+    "@types/ws": "^8.18.1"
+  },
+  "type": "module",
+  "license": "GPL-3.0-only",
+  "name": "broadcaster.ts",
+  "author": {
+    "name": "Lukseh",
+    "email": "admin@lukseh.org"
+  }
+}

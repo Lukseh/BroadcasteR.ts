@@ -1,0 +1,178 @@
+
+/* ========== BASE & COLORS ========== */
+:root {
+  --bg: #111;
+  --fg: #eee;
+  --bg-transparent: rgba(0,0,0,0.8);
+  --border-faint: rgba(255,255,255,0.18);
+  --hp-green: #3fcf3f;
+  --hp-red: #d33;
+  --team-t: #ff7e4d;
+  --team-ct: #4da4ff;
+  --accent: #00b894;
+}
+* { box-sizing: border-box; }
+html, body {
+  height: 100%; margin: 0;
+  font-family: 'Microsoft YaHei', sans-serif;
+  background: var(--bg); color: var(--fg);
+}
+
+/* ========== NAV ========== */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  height: 50px; padding: 0 1rem;
+  background: rgba(0,0,0,0.9);
+  display: flex; align-items: center; gap: 12px;
+  font-size: 18px; font-weight: 600;
+}
+nav img { height: 38px; }
+nav select { margin-left: auto; padding: 6px 10px; border-radius: 4px; background: #444; color: #fff; border: none; font-size: 15px; cursor: pointer; }
+nav option { background: #222; color: #eee; }
+
+/* ========== LAYOUT ========== */
+.container { height: 100%; padding-top: 50px; display: flex; }
+.main { flex: 1 1 auto; position: relative; overflow-y: auto; width: 60vw; background: center/cover no-repeat; }
+.overlay-block { background: rgba(20,20,20,0.6); height: 85vh; overflow: hidden; }
+.chat { width: 25vw; border: none; }
+@media (max-width:1200px) { .chat { display: none; } }
+iframe { display: block; }
+#twitch-player { width: 100%; height: 100%; border: none; }
+
+/* ========== SCOREBOARD ========== */
+.scoreboard {
+  margin: 6px auto; padding: 1vh 2vh;
+  background: var(--bg-transparent); border-radius: 120px;
+  font-size: 25px; font-weight: 700; text-shadow: 0 0 8px #000;
+  display: grid; grid-template-columns: 1fr auto 1fr; column-gap: 10px; align-items: center; width: fit-content;
+}
+.scoreboard .team1 { justify-self: end; color: var(--team-t); }
+.scoreboard .team2 { justify-self: start; color: var(--team-ct); }
+.scoreboard .score { justify-self: center; width: max-content; text-align: center; transition: color 0.3s, background 0.3s; }
+.score-changed { color: #fff !important; text-shadow: 0 0 12px var(--accent), 0 0 24px var(--accent); }
+.money-down {
+  color: var(--hp-red) !important;
+  transition: color 0.25s cubic-bezier(.4,0,.2,1);
+}
+
+/* ========== PLAYERS ========== */
+.players { padding: 0 2%; margin-bottom: 2%; display: flex; gap: 2%; }
+.team-col { flex: 1 1 0; display: flex; flex-direction: column; gap: 6px; width: 60vh; }
+.player-card {
+  background: var(--bg-transparent); border: 1px solid var(--border-faint); border-radius: 4px;
+  padding: 6px 8px; display: flex; flex-direction: column; transition: opacity 0.25s; height: 120px;
+}
+.player-card.dead { opacity: 0.7; }
+.player-card .name { display: flex; justify-content: space-between; align-items: center; font-size: 14px; font-weight: 600; margin-bottom: 4px; }
+.player-card .money { color: #c7d42a; font-weight: 500; }
+.player-card .stats { display: flex; justify-content: space-between; align-items: center; font-size: 12px; gap: 4px; }
+.weapon { width: 50px; height: 50px; object-fit: contain; filter: invert(100%); }
+.hp-bar { height: 4px; border-radius: 2px; background: #333; overflow: hidden; margin-top: 4px; }
+.hp-fill { height: 100%; background: var(--hp-green); transition: width 0.25s, background 0.25s; }
+.player-card.low-hp .hp-fill { background: var(--hp-red); }
+
+.main-title-link, .instance-title-link {
+  color: inherit;
+  text-decoration: none;
+  font-size: 1.5em;
+  font-weight: bold;
+  transition: color 0.2s;
+}
+.main-title-link:hover, .instance-title-link:hover {
+  text-decoration: underline;
+  color: var(--accent);
+}
+/* ========== STREAM CARDS (MAIN PAGE) ========== */
+.instance-cards { display: flex; flex-direction: column; gap: 2.5vw; align-items: center; margin: 3vw 0; }
+.instance-card {
+    background: linear-gradient(120deg, #23272e 60%, #23272e 90%, #23272e 100%);
+    color: #fff;
+    border-radius: 18px;
+    box-shadow: 0 4px 32px #000a, 0 1.5px 0 var(--accent) inset;
+    width: 90vw;
+    max-width: 1100px;
+    padding: 2.2em 2.5em 1.5em 2.5em;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+    transition: box-shadow 0.2s, transform 0.2s;
+    border: 1.5px solid #222b;
+    margin: 0 auto;
+    margin-top: 5vh;
+}
+.instance-card:hover { box-shadow: 0 8px 40px #00b89455, 0 2px 0 var(--accent) inset; transform: translateY(-2px) scale(1.01); }
+.instance-card .ttv-preview { width: 380px; height: 214px; border-radius: 12px; margin-right: 2.5em; background: #111; object-fit: cover; box-shadow: 0 2px 16px #0007; }
+.instance-card .info { flex: 1 1 0; display: flex; flex-direction: column; gap: 0.7em; }
+.instance-card .watch-btn {
+  background: linear-gradient(90deg, var(--accent) 60%, #00c9a7 100%);
+  color: #fff; border: none; border-radius: 6px; padding: 0.7em 2.5em; font-weight: bold; font-size: 1.2em;
+  cursor: pointer; margin-top: 1.2em; text-decoration: none; display: inline-block; box-shadow: 0 2px 8px #00b89433;
+  transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+.instance-card .watch-btn:hover { background: linear-gradient(90deg, #00916e 60%, var(--accent) 100%); box-shadow: 0 4px 16px #00b89455; transform: scale(1.04); }
+
+/* ========== ANIMATIONS ========== */
+.bomb-bg { position: absolute; top: 0; left: 0; right: 0; bottom: 0; pointer-events: none; z-index: 0; border-radius: inherit; background: transparent; transition: background 0.3s; }
+/* Bomb planted: pulsing orange */
+.bomb-pulse-bg { animation: bombPulseBg 1.2s cubic-bezier(.4,0,.2,1) infinite; }
+@keyframes bombPulseBg { 0%{background:rgba(255,126,77,0);} 30%{background:rgba(255,126,77,0.18);} 60%{background:rgba(255,126,77,0.32);} 100%{background:rgba(255,126,77,0);} }
+/* Bomb exploded: big red/orange flash */
+.bomb-exploded-bg { animation: bombExplodedBg 1.8s cubic-bezier(.4,0,.2,1) 1; }
+@keyframes bombExplodedBg { 0%{background:rgba(255,40,0,0);} 10%{background:rgba(255,40,0,0.7);} 60%{background:rgba(255,40,0,0.95);} 100%{background:rgba(255,40,0,0);} }
+/* Bomb defusing: blue pulse */
+.bomb-defusing-bg { animation: bombDefusingBg 1.2s cubic-bezier(.4,0,.2,1) infinite; }
+@keyframes bombDefusingBg { 0%{background:rgba(77,164,255,0);} 30%{background:rgba(77,164,255,0.18);} 60%{background:rgba(77,164,255,0.32);} 100%{background:rgba(77,164,255,0);} }
+/* Bomb defused: long white flash */
+.bomb-defused-flash { animation: bombDefusedFlash 1.2s cubic-bezier(.4,0,.2,1) 1; }
+@keyframes bombDefusedFlash { 0%{background:rgba(255,255,255,0);} 10%{background:rgba(255,255,255,0.7);} 60%{background:rgba(255,255,255,1);} 100%{background:rgba(255,255,255,0);} }
+/* Flash effect: as long as flashed > 0, strength by --flash-strength (0-1) */
+/* Flash effect: lasts as long as flashed > 0, strength via --flash-strength */
+
+/* --- Smooth flash effect --- */
+.flashed {
+  position: relative;
+}
+.flashed::after {
+  content: '';
+  position: absolute; left: 0; top: 0; right: 0; bottom: 0;
+  pointer-events: none;
+  background: rgba(255,255,255,calc(var(--flash-strength,0)));
+  border-radius: inherit;
+  z-index: 2;
+  transition: background 0.22s cubic-bezier(.4,0,.2,1);
+}
+
+/* --- Smooth damage pulse --- */
+.damaged {
+  animation: damagePulseSmooth 0.5s cubic-bezier(.4,0,.2,1) 1;
+}
+@keyframes damagePulseSmooth {
+  0%   { background: var(--hp-red); color: #fff; }
+  60%  { background: var(--hp-red); color: #fff; }
+  100% { background: inherit; color: inherit; }
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width:900px) {
+  .scoreboard { font-size: 20px; }
+  .player-card .name { font-size: 13px; }
+  .player-card .stats { font-size: 11px; }
+  .weapon { width: 20px; height: 20px; }
+  .instance-card .ttv-preview { height: 180px; }
+}
+@media (max-width:700px) {
+  .instance-card { max-width: 99vw; padding: 0.7em 0.2em; flex-direction: column; align-items: stretch; }
+  .instance-card .ttv-preview { width: 100%; height: 120px; margin: 0 0 1em 0; }
+  .scoreboard, .instance-card .teams { font-size: 1em; }
+  .instance-card .watch-btn { font-size: 1em; padding: 0.5em 1.2em; }
+  .players { flex-direction: column; }
+  .team-col { gap: 8px; }
+}
+
+/* ========== SCROLLBAR ========== */
+*::-webkit-scrollbar { height: 14px; width: 14px; }
+*::-webkit-scrollbar-track { border-radius: 20px; background: #222; border: 2px solid #fff; }
+*::-webkit-scrollbar-thumb { border-radius: 6px; background: #fff; border: 2px solid #000; }
+*::-webkit-scrollbar-thumb:hover { background: #fff; }
+*::-webkit-scrollbar-thumb:active { background: #E1E1E1; }
