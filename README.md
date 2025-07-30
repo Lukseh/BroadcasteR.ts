@@ -2,6 +2,8 @@
 
 A modern TypeScript-based broadcasting overlay system for Counter-Strike 2 (CS2) with real-time Game State Integration (GSI), Twitch integration, and dynamic player statistics display.
 
+Working not assured, WIP status and production deployment not advised!
+
 **IN FUTURE WP SUPPORT**
 
 ![License](https://img.shields.io/badge/license-GPL--3.0-blue.svg)
